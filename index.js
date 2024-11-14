@@ -21,12 +21,9 @@ async function main() {
     const articleContent = await readTextFile(articlePath);
 
     console.log("Wysyłanie żądania do OpenAI...");
-    // console.log(`prompt: ${promptContent}`);
-    // console.log(`articleContent: ${articleContent}`);
     const responseApi = await getResponseOpenAI(promptContent, articleContent);
 
     if (responseApi) {
-      // console.log(`responseApi: ${generatedContent}`)
       console.log("zapisywanie artykul.html ...");
       await writeTextFile(outputArticlePath, responseApi);
 

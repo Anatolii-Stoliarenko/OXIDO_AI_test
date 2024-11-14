@@ -1,6 +1,6 @@
 import fs from "fs/promises";
 
-// Odczyt pliku tekstowego
+// Odczyt pliku
 export async function readTextFile(filePath) {
   try {
     const data = await fs.readFile(filePath, "utf8");
@@ -11,7 +11,7 @@ export async function readTextFile(filePath) {
   }
 }
 
-// Zapisanie pliku tekstowego
+// Zapisanie pliku
 export async function writeTextFile(filePath, content) {
   try {
     await fs.writeFile(filePath, content, "utf8");
