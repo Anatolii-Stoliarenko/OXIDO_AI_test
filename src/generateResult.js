@@ -1,6 +1,10 @@
 import { readTextFile, writeTextFile } from "./utils.js";
 
-async function generateHTMLFile(generatedContent, templatePath, outputPath) {
+export async function generateHTMLFile(
+  generatedContent,
+  templatePath,
+  outputPath
+) {
   try {
     const templateContent = await readTextFile(templatePath);
     const outputContent = templateContent.replace(
@@ -14,5 +18,3 @@ async function generateHTMLFile(generatedContent, templatePath, outputPath) {
     throw error;
   }
 }
-
-export { generateHTMLFile };

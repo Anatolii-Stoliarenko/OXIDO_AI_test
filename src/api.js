@@ -7,7 +7,7 @@ const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY,
 });
 
-async function getResponseOpenAI(promt, article) {
+export async function getResponseOpenAI(promt, article) {
   try {
     const response = await openai.chat.completions.create({
       model: "gpt-4",
@@ -31,5 +31,3 @@ async function getResponseOpenAI(promt, article) {
     throw error;
   }
 }
-
-export { getResponseOpenAI };

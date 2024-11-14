@@ -1,34 +1,34 @@
 import { getResponseOpenAI } from "./src/api.js";
-import { readTextFile, writeTextFile } from "./src/utils.js";
+import {
+  readTextFile,
+  writeTextFile,
+  loadContentFromUrlOrFile,
+} from "./src/utils.js";
 import { generateHTMLFile } from "./src/generateResult.js";
-import path from "path";
-import { fileURLToPath } from "url";
-
-// Utworzenie __dirname dla środowiska ES6
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
+import { paths } from "./src/config.js";
 
 async function main() {
   try {
     console.log("Odczyt plików...");
-    const promptPath = path.join(__dirname, "data", "prompt.txt");
-    const articlePath = path.join(__dirname, "data", "article.txt");
-    const templatePath = path.join(__dirname, "templates", "szablon.html");
-    const outputArticlePath = path.join(__dirname, "result", "artykul.html");
-    const outputPreviewPath = path.join(__dirname, "result", "podglad.html");
-
-    const promptContent = await readTextFile(promptPath);
-    const articleContent = await readTextFile(articlePath);
+    const promptContent = await readTextFile(paths.promptPath);
+    const articleContent = await loadContentFromUrlOrFile(
+      paths.url,
+      paths.articlePath
+    );
 
     console.log("Wysyłanie żądania do OpenAI...");
     const responseApi = await getResponseOpenAI(promptContent, articleContent);
 
     if (responseApi) {
       console.log("zapisywanie artykul.html ...");
-      await writeTextFile(outputArticlePath, responseApi);
+      await writeTextFile(paths.resultArticlePath, responseApi);
 
       console.log("Generowania podglad.html ...");
-      await generateHTMLFile(responseApi, templatePath, outputPreviewPath);
+      await generateHTMLFile(
+        responseApi,
+        paths.templatePath,
+        paths.mainResultPath
+      );
 
       console.log("Proces generowania zakończony pomyślnie.");
     }
