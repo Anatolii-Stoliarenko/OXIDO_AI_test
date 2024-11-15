@@ -55,7 +55,7 @@ OXIDO_AI_test/
 └── index.js             # Główny plik aplikacji
 ```
 
-# Użycie
+## Użycie
 
 1. Wprowadź dane wejściowe do plików znajdujących się w katalogu `data/`, np. `article.txt` oraz `prompt.txt`.
 2. Uruchom aplikację za pomocą komendy:
@@ -68,7 +68,7 @@ OXIDO_AI_test/
 
 ---
 
-# Konfiguracja OpenAI API
+## Konfiguracja OpenAI API
 
 Plik `.env` musi zawierać klucz API OpenAI, aby umożliwić komunikację z serwisem. Oto jak skonfigurować `.env`:
 
@@ -83,14 +83,14 @@ Bez poprawnie skonfigurowanego klucza aplikacja nie będzie mogła korzystać z 
 
 ---
 
-# Ważne informacje
+## Ważne informacje
 
 1. Plik `.env` nie jest dodawany do repozytorium, co zapewnia bezpieczeństwo klucza API.
 2. Projekt jest przeznaczony do demonstracji i testów. Zaleca się, aby używać klucza API w bezpiecznym środowisku.
 
 ---
 
-# Wsparcie
+## Wsparcie
 
 Jeśli masz jakiekolwiek pytania dotyczące projektu lub jego konfiguracji, skontaktuj się poprzez:
 
