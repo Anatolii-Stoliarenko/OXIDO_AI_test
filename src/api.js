@@ -28,6 +28,6 @@ export async function getResponseOpenAI(promt, article) {
     return response.choices[0].message.content;
   } catch (error) {
     console.error("Wystąpił błąd podczas komunikacji z OpenAI:", error);
-    throw error;
+    return null;
   }
 }
