@@ -53,7 +53,7 @@ OXIDO_AI_test/
 ├── package.json         # Plik konfiguracyjny projektu
 ├── package-lock.json    # Plik konfiguracyjny projektu
 └── index.js             # Główny plik aplikacji
-
+```
 
 # Użycie
 
